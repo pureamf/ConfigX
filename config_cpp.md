@@ -1,10 +1,3 @@
-## Logical Data Types
-Each option can only accept a specific data type:
-- `bool`: `true` meaning YES or `false` meaning NO.
-- `int`: Only whole numbers like `1`, `2`, etc.
-- `float`: Only numbers with a decimal point like `1.2`, `1.22`, `1.2345`, etc.
-- `double`: `0.20`, `0.99` or `0.01`.
-- `str`: String `text`.
 
 ### Capture
 These are the settings for the main window where object detection occurs. The window is small and located in the center of the screen. The small window size is necessary to reduce system load and prevent objects from being detected across the entire screen.
@@ -38,7 +31,7 @@ These are the settings for the main window where object detection occurs. The wi
 - predictionInterval `float`: The higher the value, the faster the target prediction function will be processed.
 - easynorecoil `bool`: Enable easy no-recoil.
 - easynorecoilstrength `float`: How much does the crosshair pull down when the easynorecoil option is enabled?
-- input_method `str`: Mouse input method. WIN32 / [GHUB](https://github.com/SunOner/sunone_aimbot_docs/blob/main/tips/ghub.md) / [ARDUINO](https://github.com/SunOner/HID_Arduino)
+- input_method `str`: Mouse input method.  WIN32 / GHUB / ARDUINO
 
 ### Arduino
 - arduino_baudrate `int`: Baudrate of Arduino, the higher the value, the faster the commands will be processed.
@@ -47,7 +40,7 @@ These are the settings for the main window where object detection occurs. The wi
 - arduino_enable_keys `bool`: When the targeting button is pressed, data from Arduino is forwarded to the aimbot (button pressed/released) and triggers the auto-targeting function. It is useful for applications that do not allow the application to recognize whether a button has been pressed.
 
 ### Mouse shooting
-- auto_shoot `bool`: Enable automatic shooting. (For some games, [arduino](https://github.com/SunOner/HID_Arduino), GHUB exploit, or Razer is required).
+- auto_shoot `bool`: Enable automatic shooting. (For some games, [arduino], GHUB exploit, or Razer is required).
 - bScope_multiplier `float`: Allows increasing or decreasing the player's zone (box) for automatic shooting. `1.00` - Standard value, `2.20` - enlarged zone, `0.50` - reduced zone.
 
 ### AI
@@ -73,8 +66,6 @@ At the moment (version 2.8) this option is under development. In the future, it 
 - staticFrameThreshold `float`: If the frames do not differ from each other, then the value will be the lowest. Set the value to a higher value so that you do not process identical frames.
 
 ### Buttons
-You can view all the keys that can be used [here](https://github.com/SunOner/sunone_aimbot_cpp/blob/main/sunone_aimbot_cpp/keyboard/keycodes.cpp). Enter the value `None` to deactivate the function. All key presses are registered even when the program is minimized. It supports multiple keys, for example, `button_targeting = RightMouseButton, MiddleMouseButton`.
-
 - button_targeting `str`: Targeting.
 - button_shoot `str`: Shoot button for easy anti recoil option.
 - button_zoom `str`: Zoom button for easy anti recoil option.
@@ -87,24 +78,6 @@ You can view all the keys that can be used [here](https://github.com/SunOner/sun
 - overlay_opacity `int`: The transparency value of the overlay. Values from `1` to `255` are accepted.
 - overlay_snow_theme `bool`: Switching on and off the winter theme.
 - overlay_ui_scale `float`: Change global UI scale of overlay.
-
-### Custom Classes
-Below are the class redistribution settings. These settings are useful for those who are not working with the original model. For example, if you load your own model and it has only 2 classes: `player` and `head`. To enable the program to process these values and distinguish between the head and the player, do the following:
-
-```python
-class_player = 0
-class_bot = 99
-class_weapon = 99
-class_outline = 99
-class_dead_body = 99
-class_hideout_target_human = 99
-class_hideout_target_balls = 99
-class_head = 1
-class_smoke = 99
-class_fire = 99
-class_third_person = 99
-```
-
 As you can see, I have reassigned the indices for the player and head classes. For the other classes, I have set the values to 99 because such an index definitely does not exist in the model, and it functions as None/NULL.
 
 ### Debug window
@@ -112,7 +85,7 @@ As you can see, I have reassigned the indices for the player and head classes. F
 - show_fps `bool`: Display the number of frames per second of screen recording.
 - window_name `str`: Name of the debug window.
 - window_size `int`: Size of the debug window in percent.
-- debug_window_screenshot_key `str`: Take a screenshot of the [button](https://github.com/SunOner/sunone_aimbot_cpp/blob/main/sunone_aimbot_cpp/keyboard/keycodes.cpp) from the debug screen. The screenshot will be saved to the screenshots directory. It is useful for training and retraining models.
+- debug_window_screenshot_key `str`: Take a screenshot of the [button] from the debug screen. The screenshot will be saved to the screenshots directory. It is useful for training and retraining models.
 - screenshot_delay `int`: If the screenshot button is held down, it takes screenshots every N milliseconds. Useful if the button is set as the shooting button `debug_window_screenshot_key = RightMouseButton`.
 - always_on_top `bool`: When enabled, the debug window will be displayed on top of other windows.
 - verbose`bool`: Enable detailed output in the console.
